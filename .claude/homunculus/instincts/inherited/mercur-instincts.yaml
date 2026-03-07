@@ -1,0 +1,630 @@
+# Instincts generated from https://github.com/jaceksidzina/mercur
+# Generated: 2026-03-07T19:11:42.178Z
+# Version: 2.0
+
+---
+id: mercur-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Commit Length
+
+## Action
+
+Write moderate-length commit messages (~50 characters)
+
+## Evidence
+
+- Average commit message length: 66 chars
+- Based on 200 commits
+
+---
+id: mercur-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: mercur-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: mercur-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: mercur-arch-feature-based
+trigger: "when adding a new feature"
+confidence: 0.85
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Arch Feature Based
+
+## Action
+
+Create a new folder in src/features/ with all related code colocated
+
+## Evidence
+
+- Feature-based module organization detected
+- Structure: src/features/[feature-name]/
+
+---
+id: mercur-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: migrations/*, **/types.ts
+
+---
+id: mercur-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~7x per month
+- Files: packages/modules/b2c-core/src/api/vendor/products/[id]/variants/[variant_id]/media/*, packages/modules/b2c-core/src/api/vendor/products/*, packages/modules/b2c-core/src/api/vendor/products/batch/*
+
+---
+id: mercur-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/**/*
+
+---
+id: mercur-workflow-release-preparation
+trigger: "when doing release preparation"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow Release Preparation
+
+## Action
+
+Follow the release-preparation workflow:
+1. Update CHANGELOG.md with release notes
+2. Bump version in package.json files across all packages
+3. Update README.md if needed
+4. Merge release branch to main
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: CHANGELOG.md, package.json, packages/framework/package.json
+
+---
+id: mercur-workflow-new-api-endpoint
+trigger: "when doing new api endpoint"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow New Api Endpoint
+
+## Action
+
+Follow the new-api-endpoint workflow:
+1. Create route.ts with endpoint logic
+2. Add middleware for authorization/validation
+3. Define validators for request/response schemas
+4. Configure query parameters and filters
+5. Add to OpenAPI specs if admin endpoint
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: packages/modules/*/src/api/*/route.ts, packages/modules/*/src/api/*/middlewares.ts, packages/modules/*/src/api/*/validators.ts
+
+---
+id: mercur-workflow-new-database-module
+trigger: "when doing new database module"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow New Database Module
+
+## Action
+
+Follow the new-database-module workflow:
+1. Create model classes in models/ directory
+2. Generate migration files with schema changes
+3. Create service class for business logic
+4. Build workflow steps and workflows
+5. Add module index and links to other modules
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/modules/*/src/modules/*/models/*.ts, packages/modules/*/src/modules/*/migrations/*.ts, packages/modules/*/src/modules/*/service.ts
+
+---
+id: mercur-workflow-workflow-implementation
+trigger: "when doing workflow implementation"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow Workflow Implementation
+
+## Action
+
+Follow the workflow-implementation workflow:
+1. Create individual workflow steps
+2. Define step index exports
+3. Build workflow orchestration
+4. Add workflow index exports
+5. Hook into existing workflows if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: packages/modules/*/src/workflows/*/steps/*.ts, packages/modules/*/src/workflows/*/steps/index.ts, packages/modules/*/src/workflows/*/workflows/*.ts
+
+---
+id: mercur-workflow-notification-system
+trigger: "when doing notification system"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow Notification System
+
+## Action
+
+Follow the notification-system workflow:
+1. Create email template component
+2. Add template to index exports
+3. Define template types
+4. Create notification subscriber
+5. Hook subscriber to events
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/modules/resend/src/providers/resend/email-templates/*.tsx, packages/modules/resend/src/providers/resend/email-templates/index.ts, packages/modules/resend/src/providers/resend/types/templates.ts
+
+---
+id: mercur-workflow-middleware-implementation
+trigger: "when doing middleware implementation"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/jaceksidzina/mercur
+---
+
+# Mercur Workflow Middleware Implementation
+
+## Action
+
+Follow the middleware-implementation workflow:
+1. Create middleware function
+2. Add to middleware index
+3. Apply to relevant API routes
+4. Add middleware types if complex
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: packages/modules/*/src/*/middlewares.ts, packages/modules/*/src/shared/infra/http/middlewares/*.ts, packages/modules/*/src/shared/infra/http/middlewares/index.ts
+
+---
+id: mercur-conventional-commit-prefix
+trigger: "When creating a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Conventional Commit Prefix
+
+## Action
+
+Use conventional commit format with prefixes: feat, fix, chore, docs, or release
+
+## Evidence
+
+- All 8 commit examples use prefixes
+- Consistent pattern across releases
+
+---
+id: mercur-camel-case-files
+trigger: "When creating a new TypeScript file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Camel Case Files
+
+## Action
+
+Name files using camelCase convention
+
+## Evidence
+
+- namingConventions.files: camelCase
+- Consistent across codebase
+
+---
+id: mercur-pascal-case-classes
+trigger: "When defining a class"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Pascal Case Classes
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- namingConventions.classes: PascalCase
+- TypeScript standard pattern
+
+---
+id: mercur-relative-imports
+trigger: "When importing modules within the same package"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Relative Imports
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- importStyle: relative
+- Monorepo structure pattern
+
+---
+id: mercur-named-exports
+trigger: "When exporting functionality from a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Named Exports
+
+## Action
+
+Use named exports instead of default exports
+
+## Evidence
+
+- exportStyle: named
+- Consistent with TypeScript best practices
+
+---
+id: mercur-try-catch-errors
+trigger: "When handling potential errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Try Catch Errors
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- errorHandling.style: try-catch
+- No custom error classes detected
+
+---
+id: mercur-api-route-structure
+trigger: "When creating a new API endpoint"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Api Route Structure
+
+## Action
+
+Create route.ts, middlewares.ts, validators.ts, and query-config.ts files
+
+## Evidence
+
+- new-api-endpoint workflow 8x/month
+- Consistent file pattern in packages/modules/*/src/api/
+
+---
+id: mercur-workflow-steps-structure
+trigger: "When implementing business logic workflows"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Workflow Steps Structure
+
+## Action
+
+Create individual steps in steps/ directory and orchestrate in workflows/ directory
+
+## Evidence
+
+- workflow-implementation 10x/month
+- Pattern in packages/modules/*/src/workflows/*/steps/ and workflows/
+
+---
+id: mercur-module-organization
+trigger: "When creating a new database module"
+confidence: 0.88
+domain: architecture
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Module Organization
+
+## Action
+
+Organize by feature with models/, migrations/, service.ts, and workflow integration
+
+## Evidence
+
+- new-database-module workflow
+- Feature-based organization pattern
+
+---
+id: mercur-release-changelog-update
+trigger: "When preparing a release"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Release Changelog Update
+
+## Action
+
+Update CHANGELOG.md and bump versions across all package.json files
+
+## Evidence
+
+- release-preparation workflow
+- chore: update CHANGELOG for release 1.5.4 commit
+
+---
+id: mercur-notification-template-structure
+trigger: "When adding email notifications"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Notification Template Structure
+
+## Action
+
+Create .tsx template, add to index exports, define types, and create subscriber
+
+## Evidence
+
+- notification-system workflow
+- packages/modules/resend/src/ structure
+
+---
+id: mercur-middleware-reusability
+trigger: "When implementing cross-cutting concerns"
+confidence: 0.87
+domain: workflow
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Middleware Reusability
+
+## Action
+
+Create reusable middleware functions and add to middleware index
+
+## Evidence
+
+- middleware-implementation workflow 5x/month
+- Pattern in middlewares.ts files
+
+---
+id: mercur-turborepo-structure
+trigger: "When organizing code in this monorepo"
+confidence: 0.9
+domain: architecture
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Turborepo Structure
+
+## Action
+
+Place applications in apps/ and shared packages in packages/
+
+## Evidence
+
+- folderStructure.type: turborepo
+- apps/ and packages/ directories present
+
+---
+id: mercur-typescript-config-per-module
+trigger: "When creating a new module or package"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Typescript Config Per Module
+
+## Action
+
+Include tsconfig.json at module level and admin subdirectory level
+
+## Evidence
+
+- Multiple tsconfig.json files
+- Pattern in packages/modules/*/tsconfig.json and src/admin/tsconfig.json
+
+---
+id: mercur-jest-testing-setup
+trigger: "When setting up tests for backend code"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: jaceksidzina/mercur
+---
+
+# Mercur Jest Testing Setup
+
+## Action
+
+Use Jest with jest.config.js configuration
+
+## Evidence
+
+- apps/backend/jest.config.js present
+- Standard Node.js testing pattern
+
